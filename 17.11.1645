@@ -1,0 +1,81 @@
+# Tugas-uas
+nama : ari chandra
+nim  : 17.11.1645
+
+#include <iostream>
+#include <string>
+using namespace std;
+class Kalkulator // ini adalah class kalkulator 
+{
+    protected :
+    int Bil1; // bil1 adalah member class kalkulator
+    int Bil2; // bil2 adalah member class kalkulator
+    float Hasil; // hasil adalah member class kalkulator
+    float Jumlah; // jumlah adalah member class kalkulator
+};
+class Kalkulator_Science : public Kalkulator // kalkulator_science adalah turunan class kalkulator
+{
+private :
+    float Bil3; // member class kalkulator science
+    public :
+    void input() // fungsi input
+    {
+        cout<<"\nKalkulator Science"<<endl;
+        cout<<"Masukkan Bilangan Pertama : "; cin>>Bil1;
+        cout<<"Masukkan Bilangan Kedua : "; cin>>Bil2;
+    }
+    void output() // fungsi output
+    {
+        cout<<"\nHASIL :";
+        Hasil= (Bil1 + Bil2)*(Bil1+Bil2); // fungsi perhitungan hasil kuadrat
+        cout<<"\nKuadrat= " <<Hasil<<endl;
+        Hasil= (Bil1 + Bil2) / 2;  // fungsi perhitungan hasil rata-rata
+        cout<<"Hitung Rata-Rata= "<<Hasil<<endl;
+    }
+};
+
+class Kalkulator_Dagang: public Kalkulator // kalkulator_dagang adalah turunan class kalkulator
+{
+
+    private :
+    public:
+        void input() // fungsi input
+        {
+            cout<<"\nKalkulator Dagang"<<endl;
+            cout<<"Masukkan Bilangan pertama: "; cin>>Bil1;
+            cout<<"Masukkan Bilangan Kedua : "; cin>>Bil2;
+        }
+        void output()// fungsi output
+        {
+            cout<<"\nHASIL :";
+            Hasil=Bil1 - Bil2 ; // perhitungan hasil pengurangan 
+            cout<<"\nKurang = "<<Hasil<<endl; 
+            Hasil=Bil1 * Bil2; // perhitungan hasil perkalian
+            cout<<"Kali = "<<Hasil<<endl;
+            Hasil=Bil1 / Bil2; // perhitungan hasil pembagian
+            cout<<"Bagi = "<<Hasil<<endl;
+        }
+};
+    int main()
+    {
+        Kalkulator_Science Ks; // object dari class kalkulator
+        Kalkulator_Dagang Kd; // object dari class kalkulator
+        int pil;
+        cout<<"---------Kalkulator-----------\n"<<endl;
+        cout<<"1. Kalkulator Science\n"<<endl;
+        cout<<"2. Kalkulator Dagang\n"<<endl;
+        cout<<"pilih : "; cin>>pil;
+        if(pil==1)
+        {
+            Ks.input();
+            Ks.output();
+            cout<<endl;
+        }
+        if (pil==2)
+        {
+            Kd.input();
+            Kd.output();
+            cout<<endl;
+        }
+        return 0;
+    }
